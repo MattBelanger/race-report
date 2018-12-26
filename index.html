@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Race Reports</title>
+		<link rel="stylesheet" type="text/css" href="normalize.css">
+		<link rel="stylesheet" type="text/css" href="race_report.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<div id="race_report_container">
+			<div class="race_conditions">
+				Racing for: <span id="RaceDate"></span>, 
+      			Surface: <span id="RaceSurface"></span>,
+      			Conditions: <span id="RaceConditions"></span>
+      		</div>
+      		<div id="RaceLinks" class="race_list">
+      		</div>
+      		<table id="RaceResults">
+      			<thead>
+      				<tr>
+      					<th colspan="4">Race <span id="RaceNumber"> </span></th>
+      				</tr>
+      				<tr>
+	      				<th>&nbsp;</th>
+	      				<th>Win</th>
+	      				<th>Place</th>
+	      				<th>Show</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="horse_name" id="WinHorse"></td>
+						<td id="WinWinAmount"></td>
+						<td id="WinPlaceAmount"></td>
+						<td id="WinShowAmount"></td>
+					</tr>
+					<tr>
+						<td class="horse_name" id="PlaceHorse"></td>
+						<td class="empty_cell">&nbsp;</td>
+						<td id="PlacePlaceAmount"></td>
+						<td id="PlaceShowAmount"></td>
+					</tr>
+					<tr>
+						<td class="horse_name" id="ShowHorse"></td>
+						<td class="empty_cell">&nbsp;</td>
+						<td class="empty_cell">&nbsp;</td>
+						<td id="ShowShowAmount"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="additional_info">Also ran: <span id="AlsoRans"></span></div>
+			<div class="additional_info">Scratches:  <span id="Scratches"></span></div>
+  		</div>
+
+ 		 <script src="race_report.js"></script>
+	</body>
+</html

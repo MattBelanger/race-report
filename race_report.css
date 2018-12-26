@@ -1,0 +1,36 @@
+#race_report_container {
+	max-width: 800px;
+	width: 80%;
+	padding: 10px;
+	color: #333;
+}
+
+#race_report_container div, #race_report_container table {
+	width: 100%;
+}
+
+#race_report_container div {
+	margin: 5px 0;
+}
+
+#RaceResults {
+	margin: 15px 0;
+	border-collapse: collapse;
+}
+
+#RaceResults th {
+	text-align: left;
+}
+
+#RaceResults td {
+	border: 1px solid #333;
+	padding: 3px;
+}
+
+a, a:visited {
+	color: #000099;
+}
+
+a.selected {
+	text-decoration: none;
+}
