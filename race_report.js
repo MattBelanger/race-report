@@ -1,4 +1,6 @@
 var raceReports = {
+  race_days_url: 'https://5hioggs5t4.execute-api.us-east-2.amazonaws.com/default/race-days',
+  race_url: 'https://5hioggs5t4.execute-api.us-east-2.amazonaws.com/default/races', //?race_date=2018-11-25&race_number=1'
   init: function() {
     this.loadRaceDays();
   },
@@ -6,7 +8,7 @@ var raceReports = {
   scratches: [],
   also_rans: [],
   loadRaceDays: function(firstRun = false) {
-    $.getJSON('race-days.json',
+    $.getJSON(this.race_days_url,
       function(data) {
         raceReports.renderRaceDay(data[0]);
         $.each(data, function(element) {
@@ -17,7 +19,7 @@ var raceReports = {
   loadRace: function(raceDate, raceNum) {
     this.scratches = [];
     this.also_rans = [];
-    $.getJSON(raceNum+'.json', 
+    $.getJSON(this.race_url+'?race_date='+raceDate+'&race_number='+raceNum, 
       function(data) {
         raceReports.renderRace(data);
       }
