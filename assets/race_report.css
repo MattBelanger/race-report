@@ -34,3 +34,12 @@ a, a:visited {
 a.selected {
 	text-decoration: none;
 }
+
+.empty_cell {
+	background-color: #EEE;
+}
+
+.horse_name {
+	min-width: 200px;
+	min-height: 1em;
+}

@@ -4,14 +4,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="UTF-8">
 		<title>Race Reports</title>
-		<link rel="stylesheet" type="text/css" href="normalize.css">
-		<link rel="stylesheet" type="text/css" href="race_report.css">
+		<link rel="stylesheet" type="text/css" href="assets/normalize.css">
+		<link rel="stylesheet" type="text/css" href="assets/race_report.css">
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
 		<div id="race_report_container">
 			<div class="race_conditions">
-				Racing for: <span id="RaceDate"></span>, 
+				Racing for: <select name="RaceDate" id="RaceDate"></select>, 
       			Surface: <span id="RaceSurface"></span>,
       			Conditions: <span id="RaceConditions"></span>
       		</div>
@@ -51,9 +51,9 @@
 				</tbody>
 			</table>
 			<div class="additional_info">Also ran: <span id="AlsoRans"></span></div>
-			<div class="additional_info">Scratches:  <span id="Scratches"></span></div>
+			<div class="additional_info" id="ScratchContainer">Scratches:  <span id="Scratches"></span></div>
   		</div>
 
- 		 <script src="race_report.js"></script>
+ 		 <script src="app/race_report.js"></script>
 	</body>
 </html

@@ -2,18 +2,29 @@ var raceReports = {
   race_days_url: 'https://5hioggs5t4.execute-api.us-east-2.amazonaws.com/default/race-days',
   race_url: 'https://5hioggs5t4.execute-api.us-east-2.amazonaws.com/default/races', //?race_date=2018-11-25&race_number=1'
   init: function() {
+    $('#RaceLinks').on('click', 'a', function(event) {
+      $('.selected').removeClass('selected');
+      raceReports.loadRace(this.dataset.raceDate, this.dataset.raceNum)
+    });
+
+    $('#RaceDate').change(function() {
+      raceReports.renderRaceDay();
+    });
     this.loadRaceDays();
   },
   allDates: [],
   scratches: [],
   also_rans: [],
+  raceData: {},
   loadRaceDays: function(firstRun = false) {
     $.getJSON(this.race_days_url,
       function(data) {
-        raceReports.renderRaceDay(data[0]);
         $.each(data, function(element) {
-          raceReports.allDates.push(data[element].Date);
+          var date = data[element].Date;
+          raceReports.allDates.push(date);
+          raceReports.raceData[date] = data[element];
         })
+        raceReports.renderDateSelect();
       });
   }, 
   loadRace: function(raceDate, raceNum) {
@@ -25,10 +36,22 @@ var raceReports = {
       }
     );
   },
-  renderRaceDay: function(dayData) {
-    var theDate = dayData.Date;
+  renderDateSelect: function() {
+    var select = $('#RaceDate');
+    var first = true;
+    $.each(this.allDates, function(el, value) {
+      select.append(new Option(value, value));
+      if (first) {
+        select.val(value);
+        first = false;
+      }
+    });
+    this.renderRaceDay();
+  },
+  renderRaceDay: function() {
+    var theDate = $('#RaceDate').val();
+    var dayData = this.raceData[theDate];
     var raceLinks = [];
-    $('#RaceDate').text(theDate);
     for (i=1;i<=dayData.NumRaces;i++) {
       raceLinks.push(this.makeRaceLink(theDate, i));
     }
@@ -44,7 +67,12 @@ var raceReports = {
       raceReports.parseEntry(this);
     });
     $('#AlsoRans').text(this.also_rans.join(', '));
-    $('#Scratches').text(this.scratches.join(', '));
+    if (this.scratches.length > 0) {
+      $('#ScratchContainer').show();
+      $('#Scratches').text(this.scratches.join(', '));
+    } else {
+      $('#ScratchContainer').hide();
+    }
   },
   renderWin: function(entry) {
     $('#WinHorse').text(entry.Horse.Name);
@@ -95,8 +123,4 @@ var raceReports = {
 
 $(function(){
   raceReports.init();
-  $('#RaceLinks').on('click', 'a', function(event) {
-    $('.selected').removeClass('selected');
-    raceReports.loadRace(this.dataset.raceDate, this.dataset.raceNum)
-  });
 })
