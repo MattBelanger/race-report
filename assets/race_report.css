@@ -43,3 +43,7 @@ a.selected {
 	min-width: 200px;
 	min-height: 1em;
 }
+
+.race_data {
+	font-weight: bold;
+}

@@ -12,8 +12,8 @@
 		<div id="race_report_container">
 			<div class="race_conditions">
 				Racing for: <select name="RaceDate" id="RaceDate"></select>, 
-      			Surface: <span id="RaceSurface"></span>,
-      			Conditions: <span id="RaceConditions"></span>
+      			Surface: <span class="race_data" id="RaceSurface"></span>,
+      			Conditions: <span class="race_data"  id="RaceConditions"></span>
       		</div>
       		<div id="RaceLinks" class="race_list">
       		</div>
@@ -31,22 +31,22 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="horse_name" id="WinHorse"></td>
-						<td id="WinWinAmount"></td>
-						<td id="WinPlaceAmount"></td>
-						<td id="WinShowAmount"></td>
+						<td class="horse_name" id="WinHorse">&nbsp;</td>
+						<td class="winnings" id="WinWinAmount"></td>
+						<td class="winnings" id="WinPlaceAmount"></td>
+						<td class="winnings" id="WinShowAmount"></td>
 					</tr>
 					<tr>
 						<td class="horse_name" id="PlaceHorse"></td>
 						<td class="empty_cell">&nbsp;</td>
-						<td id="PlacePlaceAmount"></td>
-						<td id="PlaceShowAmount"></td>
+						<td class="winnings" id="PlacePlaceAmount"></td>
+						<td class="winnings" id="PlaceShowAmount"></td>
 					</tr>
 					<tr>
 						<td class="horse_name" id="ShowHorse"></td>
 						<td class="empty_cell">&nbsp;</td>
 						<td class="empty_cell">&nbsp;</td>
-						<td id="ShowShowAmount"></td>
+						<td class="winnings" id="ShowShowAmount"></td>
 					</tr>
 				</tbody>
 			</table>
